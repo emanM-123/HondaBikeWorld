@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Hydrogen template: Skeleton
 
 Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a **minimal setup** of components, queries and tooling to get started with Hydrogen.
@@ -84,3 +85,6 @@ Alternately, the values of the required environment variables "PUBLIC_CUSTOMER_A
 
 > [!NOTE]
 > B2B features such as contextual pricing is not available in SF API with Customer Account API login. If you require this feature, we suggest using the [legacy-customer-account-flow](https://github.com/Shopify/hydrogen/tree/main/examples/legacy-customer-account-flow). This feature should be available in the Customer Account API in the 2024-04 release.
+=======
+# HondaBikeWorld
+>>>>>>> a802c517f1d1983fc53edc2afafc5aa959c42770

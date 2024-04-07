@@ -1,5 +1,5 @@
-import {useNonce} from '@shopify/hydrogen';
-import {defer} from '@shopify/remix-oxygen';
+import { useNonce } from '@shopify/hydrogen';
+import { defer } from '@shopify/remix-oxygen';
 import {
   Links,
   Meta,
@@ -15,13 +15,18 @@ import {
 import favicon from './assets/favicon.svg';
 import resetStyles from './styles/reset.css';
 import appStyles from './styles/app.css';
-import {Layout} from '~/components/Layout';
+import componentsStyles from './styles/components.css';
+import formsStyles from './styles/reach_us.css';
+import motorcycleStyles from './styles/motorcycle.css';
+import bookNowStyles from './styles/book_now.css';
+import ourStoryStyles from './styles/our_story.css';
+import { Layout } from '~/components/Layout';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
  * @type {ShouldRevalidateFunction}
  */
-export const shouldRevalidate = ({formMethod, currentUrl, nextUrl}) => {
+export const shouldRevalidate = ({ formMethod, currentUrl, nextUrl }) => {
   // revalidate when a mutation is performed e.g add to cart, login...
   if (formMethod && formMethod !== 'GET') {
     return true;
@@ -37,8 +42,13 @@ export const shouldRevalidate = ({formMethod, currentUrl, nextUrl}) => {
 
 export function links() {
   return [
-    {rel: 'stylesheet', href: resetStyles},
-    {rel: 'stylesheet', href: appStyles},
+    { rel: 'stylesheet', href: resetStyles },
+    { rel: 'stylesheet', href: appStyles },
+    { rel: 'stylesheet', href: componentsStyles },
+    { rel: 'stylesheet', href: formsStyles },
+    { rel: 'stylesheet', href: motorcycleStyles },
+    { rel: 'stylesheet', href: bookNowStyles },
+    { rel: 'stylesheet', href: ourStoryStyles },
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
@@ -47,7 +57,7 @@ export function links() {
       rel: 'preconnect',
       href: 'https://shop.app',
     },
-    {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    { rel: 'icon', type: 'image/svg+xml', href: favicon },
   ];
 }
 
@@ -63,8 +73,8 @@ export const useRootLoaderData = () => {
 /**
  * @param {LoaderFunctionArgs}
  */
-export async function loader({context}) {
-  const {storefront, customerAccount, cart} = context;
+export async function loader({ context }) {
+  const { storefront, customerAccount, cart } = context;
   const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
   const isLoggedInPromise = customerAccount.isLoggedIn();
@@ -112,6 +122,7 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
         <Meta />
         <Links />
       </head>
@@ -242,3 +253,5 @@ const FOOTER_QUERY = `#graphql
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @typedef {import('@remix-run/react').ShouldRevalidateFunction} ShouldRevalidateFunction */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
+
+

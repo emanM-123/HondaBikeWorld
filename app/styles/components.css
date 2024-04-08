@@ -35,6 +35,8 @@
 
 .header__link.active {
   font-weight: bold;
+  color: red;
+  text-decoration: none
 }
 
 .toggle-menu {

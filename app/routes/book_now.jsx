@@ -78,7 +78,7 @@ const BookNow = () => {
           link1="/test_ride"
           icon2="/images/span.icon3.png"
           text2="PRODUCT ENQUIRY"
-          link2="/page2"
+          link2="/product_enquiry"
         />
       </div>
       <div className="sprit-icon2">

@@ -20,6 +20,7 @@ import formsStyles from './styles/reach_us.css';
 import motorcycleStyles from './styles/motorcycle.css';
 import bookNowStyles from './styles/book_now.css';
 import ourStoryStyles from './styles/our_story.css';
+import featureSliderStyles from './styles/feature_slider.css';
 import { Layout } from '~/components/Layout';
 
 /**
@@ -49,6 +50,7 @@ export function links() {
     { rel: 'stylesheet', href: motorcycleStyles },
     { rel: 'stylesheet', href: bookNowStyles },
     { rel: 'stylesheet', href: ourStoryStyles },
+    { rel: 'stylesheet', href:featureSliderStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',

@@ -157,5 +157,20 @@ const bikeData = [
     },
 ];
 
+const features = [
+    {
+        image:"/images/feature1.jpg",
+        description:"FULL LED HEADLAMP AND TAILLAMP WITH FIRE RING TYPE LED WINKERS Find royalty in style. Take on the roads with elegance and class with these round-shaped full leadheadlamps and fire ring-type LED winkers"
+    },
+    {
+        image:"/gallary/div.elementor-widget-wrap-1.png",
+        description:"TAILLAMP WITH FIRE RING TYPE LED WINKERS Find royalty in style. Take on the roads with elegance and class with these round-shaped full leadheadlamps and fire ring-type LED winkers"
+    },
+    {
+        image:"/gallary/div.elementor-widget-wrap.png",
+        description:"WINKERS Find royalty in style. Take on the roads with elegance and class with these round-shaped full leadheadlamps and fire ring-type LED winkers"
+    }
+]
 
-export { bannerImages, bikeImages, gallaryImage, bikeData };
+
+export { bannerImages, bikeImages, gallaryImage, bikeData, features };

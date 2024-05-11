@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import { useLocation } from "react-router-dom";
+import { bikeSDetails } from "../data/bannerImages";
 
 const EnquiryNow = () => {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);  
+    const id = searchParams.get('id') || '1'; 
+    const selectedBike = bikeSDetails.find(bike => bike.id === parseInt(id));
+    console.log("selectedBikeselectedBike",selectedBike);
     const [selected, setSelected] = useState('TITLE');
     const options = [
         { label: 'TITLE', value: '' },
@@ -10,6 +17,7 @@ const EnquiryNow = () => {
     const handleSelectChange = (event) => {
         setSelected(event.target.value);
     };
+    const { image, price } = selectedBike;
     return (
         <div className="slideshow-container">
             <div className="sprit-icon2">
@@ -19,8 +27,8 @@ const EnquiryNow = () => {
 
             <div className="enquiry-container">
                 <div className="image">
-                    <img src="/bikes/cb300f.png" alt="Image" />
-                    <p>RS. 2,12,856/-</p>
+                    <img src={image} alt="Image" />
+                    <p>{price}</p>
                     <span>EX-SHOWROOM PRICE</span>
                 </div>
                 <div className="enq-form">

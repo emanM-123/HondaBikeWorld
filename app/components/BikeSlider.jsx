@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function BikeSlider({ images }) {
+export default function BikeSlider({ images , onSlideChange}) {
   const [slideIndex, setSlideIndex] = useState(0);
-
   const plusDivs = (n) => {
-    showDivs(slideIndex + n);
+    const newIndex = (slideIndex + n + images.length) % images.length;
+    showDivs(newIndex);
+    onSlideChange && onSlideChange(images[newIndex].id);
+
   };
 
   const showDivs = (n) => {
@@ -33,12 +35,12 @@ export default function BikeSlider({ images }) {
           <img src={images[(slideIndex - 1 + images.length) % images.length].image} alt="Previous Slide" />
         </div>
         <div className="current-slide" >
-          <p>{images[slideIndex].title}</p>
+          <p>{images[slideIndex].modelName}</p>
           <img src={images[slideIndex].image} alt="Current Slide" />
-          <span>{images[slideIndex].title}</span>
+          <span>{images[slideIndex].modelName}</span>
         </div>
         <div className="next-slide" onClick={handleNextSlideClick}>
-          <img src={images[(slideIndex + 1) % images.length].image} alt="Next Slide" />
+          <img src={images[(slideIndex + 1) % images.length].image} alt="Next Slide"/>
         </div>
       </div>
     </div>
@@ -47,7 +49,9 @@ export default function BikeSlider({ images }) {
 
 BikeSlider.propTypes = {  
   images: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+    modelName: PropTypes.string.isRequired,
   })).isRequired,
+  onSlideChange: PropTypes.func
 };

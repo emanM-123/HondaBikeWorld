@@ -1,7 +1,6 @@
 import React from "react";
 import FeaturesSlider from "../components/FeaturesSlider";
-import { features } from "../data/bannerImages";
-const Features = () => {
+const Features = ({ selectedBike }) => {
 
 
     return (
@@ -13,7 +12,7 @@ const Features = () => {
             <div className="features-container">
                 <img src="/images/Rectangle2.png" alt="div-image" className='feature-div' />
                 <div className="feature-text">
-                    <FeaturesSlider features={features}/>
+                    <FeaturesSlider features={selectedBike.features} />
                 </div>
             </div>
         </div>

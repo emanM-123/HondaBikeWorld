@@ -19,7 +19,7 @@ export function Footer() {
           <span className="menu-divider">|</span>
           <li><a href="#">VISIT CORPORATE WEBSITE</a></li>
           <span className="menu-divider">|</span>
-          <li><a href="/reach-us">CONTACT US</a></li>
+          <li><a href="/reach_us">CONTACT US</a></li>
         </ul>
       </div>
       <div className="social-links">

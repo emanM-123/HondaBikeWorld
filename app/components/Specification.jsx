@@ -1,6 +1,7 @@
 import React from "react";
 
 export const  Specification = ({ bikeData, tabName }) => {
+  console.log(bikeData, tabName);
   const formattedTabName = formatTabName(tabName);
   const selectedCategory = bikeData.find(category => Object.keys(category)[0] === tabName);
   const specifications = selectedCategory ? selectedCategory[tabName] : {};
@@ -30,10 +31,12 @@ function formatTabName(tabName) {
           return 'BODY & DIMENSIONS';
       case 'suspension':
           return 'FRAME & SUSPENSION';
-      case 'tyres':
+      case 'tyresBreaks':
           return 'TYRES & BRAKES';
       case 'transmission':
           return 'TRANSMISSION';
+      case 'electricals':
+        return 'ELECTRICALS';
       default:
           return tabName.toUpperCase(); 
   }

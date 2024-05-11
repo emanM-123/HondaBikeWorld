@@ -48,3 +48,6 @@ export default function GallerySlide({ images }) {
         </div>
     );
 }
+// GallerySlide.propTypes = {  
+//     currentSlideId: PropTypes.number.isRequired, // ID of the current slide
+// };

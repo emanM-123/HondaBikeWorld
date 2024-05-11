@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { bikeImages } from "../data/bannerImages";
+import { bikeSDetails } from "../data/bannerImages";
 import { Link } from "react-router-dom";
 export default function Motorcycle() {
   const imagesPerScreen = 3;
@@ -18,26 +18,26 @@ export default function Motorcycle() {
   return (
     <div className='slideshow-container'>
       <div className='container'>
-        {bikeImages.map((bike, index) => (
+        {bikeSDetails.map((bike, index) => (
           <div key={index} className="box">
-            <Link to={`/book_now`}>
-              <img src={bike.image} alt={bike.title} />
+            <Link to={`/book_now?id=${bike.id}`}>
+              <img src={bike.image} alt={bike.modelName} />
             </Link>
-            <span>{bike.title}</span>
+            <span>{bike.modelName}</span>
           </div>
         ))}
       </div>
       <div className='container responsive-slider'>
-        {bikeImages.slice(topStartIndex, topStartIndex + imagesPerScreen).map((bike, index) => (
-          <div key={index} className="box">
-            <Link to={`/book_now`}>
-              <img src={bike.image} alt={bike.title} />
-            </Link>
-            <span>{bike.title}</span>
-          </div>
-        ))}
+          {bikeSDetails.slice(topStartIndex, topStartIndex + imagesPerScreen).map((bike, index) => (
+            <div key={index} className="box">
+              <Link to={ `/book_now?id=${bike.id}`}>
+                <img src={bike.image} alt={bike.modelName} />
+              </Link>
+              <span>{bike.modelName}</span>
+            </div>
+          ))}
         <div className='res-slide-controls'>
-          {bikeImages.map((_, index) => (
+          {bikeSDetails.map((_, index) => (
             <span
               key={index}
               className={`slide-bar ${index >= topStartIndex && index < topStartIndex + imagesPerScreen ? 'active' : ''}`}
@@ -46,11 +46,11 @@ export default function Motorcycle() {
           )).slice(0, 3)}
         </div>
       </div>
-      <div className='dream-honda'>
+      {/* <div className='dream-honda'>
         <p>Dream Honda</p>
       </div>
       <div className='container'>
-        {bikeImages.map((bike, index) => (
+        {bikeSDetails.map((bike, index) => (
           <div key={index} className="box">
             <Link to={`/book_now`}>
               <img src={bike.image} alt={bike.title} />
@@ -61,7 +61,7 @@ export default function Motorcycle() {
         ))}
       </div>
       <div className='container responsive-slider'>
-        {bikeImages.slice(bottomStartIndex, bottomStartIndex + imagesPerScreen).map((bike, index) => (
+        {bikeSDetails.slice(bottomStartIndex, bottomStartIndex + imagesPerScreen).map((bike, index) => (
           <div key={index} className="box">
             <Link to={`/book_now`}>
               <img src={bike.image} alt={bike.title} />
@@ -70,7 +70,7 @@ export default function Motorcycle() {
           </div>
         ))}
         <div className='res-slide-controls'>
-          {bikeImages.map((_, index) => (
+          {bikeSDetails.map((_, index) => (
             <span
               key={index}
               className={`slide-bar ${index >= bottomStartIndex && index < bottomStartIndex + imagesPerScreen ? 'active' : ''}`}
@@ -78,7 +78,7 @@ export default function Motorcycle() {
             ></span>
           )).slice(0, 3)}
         </div>
-      </div>
+      </div> */}
 
     </div>
 

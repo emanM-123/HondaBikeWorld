@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { bikeData } from "../data/bannerImages";
+import { bikeSDetails } from "../data/bannerImages";
 import Card from "../components/Card";
-import {Specification} from "../components/Specification";
+import { Specification } from "../components/Specification";
 import EnquiryNow from "../routes/enquiry_now";
 import TestRide from "../routes/test_ride";
 import Features from "../routes/features";
+import { useLocation } from "react-router-dom";
 
 const BookNow = () => {
-  const bikeId = 1;
-  const selectedBike = bikeData.find(bike => bike.id === parseInt(bikeId));
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);  
+  const id = searchParams.get('id') || '1'; 
+  const selectedBike = bikeSDetails.find(bike => bike.id === parseInt(id));
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedVariantName, setSelectedVariantName] = useState('');
@@ -23,8 +26,8 @@ const BookNow = () => {
   const handleColorClick = (color) => {
     setSelectedColor(color);
   }
-
-  const { model, variants } = selectedBike;
+  
+  const { modelName, variants } = selectedBike;
   useEffect(() => {
     if (variants.length > 0) {
       setSelectedVariant(variants[0]);
@@ -48,7 +51,7 @@ const BookNow = () => {
           </ul>
         </div>
         <div className='current-image'>
-          <p>{model}</p>
+          <p>{modelName}</p>
           {selectedColor && <img src={selectedColor.link} alt={selectedColor.color} />}
           <span>{selectedVariantName}</span>
         </div>
@@ -87,7 +90,7 @@ const BookNow = () => {
       </div>
       <div>
         {selectedVariant && (
-          <div>
+          <div> 
             <div className="tab-container">
               <span className="menu-divider" style={{ color: activeTab === 'engine' ? 'red' : '' }}>|</span>
               <button className={activeTab === 'engine' ? 'active' : ''} onClick={() => handleTabClick('engine')} style={{ color: activeTab === 'engine' ? 'red' : '' }}>ENGINE</button>
@@ -95,22 +98,27 @@ const BookNow = () => {
               <button className={activeTab === 'dimensions' ? 'active' : ''} onClick={() => handleTabClick('dimensions')} style={{ color: activeTab === 'dimensions' ? 'red' : '' }}>BODY DIMENSION</button>
               <span className="menu-divider" style={{ color: activeTab === 'suspension' ? 'red' : '' }}>|</span>
               <button className={activeTab === 'suspension' ? 'active' : ''} onClick={() => handleTabClick('suspension')} style={{ color: activeTab === 'suspension' ? 'red' : '' }}>FRAME & SUSPENSION</button>
-              <span className="menu-divider" style={{ color: activeTab === '' ? 'red' : '' }}>|</span>
-              <button className={activeTab === '' ? 'active' : ''} style={{ color: activeTab === '' ? 'red' : '' }}>TYRES & BREAKS</button>
-              <span className="menu-divider" style={{ color: activeTab === '' ? 'red' : '' }}>|</span>
-              <button className={activeTab === '' ? 'active' : ''} style={{ color: activeTab === '' ? 'red' : '' }}>TRANSMISSION</button>
+              <span className="menu-divider" style={{ color: activeTab === 'tyresBreaks' ? 'red' : '' }}>|</span>
+              <button className={activeTab === 'tyresBreaks' ? 'active' : ''} onClick={() => handleTabClick('tyresBreaks')} style={{ color: activeTab === 'tyresBreaks' ? 'red' : '' }}>TYRES & BREAKS</button>
+              <span className="menu-divider" style={{ color: activeTab === 'transmission' ? 'red' : '' }}>|</span>
+              <button className={activeTab === 'transmission' ? 'active' : ''} onClick={() => handleTabClick('transmission')}  style={{ color: activeTab === 'transmission' ? 'red' : '' }}>TRANSMISSION</button>
+              <span className="menu-divider" style={{ color: activeTab === 'electricals' ? 'red' : '' }}>|</span>
+              <button className={activeTab === 'electricals' ? 'active' : ''} onClick={() => handleTabClick('electricals')}  style={{ color: activeTab === 'electricals' ? 'red' : '' }}>ELECTRICALS</button>
             </div>
             <div>
               {activeTab === 'engine' && <Specification bikeData={selectedBike.specifications} tabName="engine" />}
               {activeTab === 'dimensions' && <Specification bikeData={selectedBike.specifications} tabName="dimensions" />}
               {activeTab === 'suspension' && <Specification bikeData={selectedBike.specifications} tabName="suspension" />}
+              {activeTab === 'tyresBreaks' && <Specification bikeData={selectedBike.specifications} tabName="tyresBreaks" />}
+              {activeTab === 'transmission' && <Specification bikeData={selectedBike.specifications} tabName="transmission" />}
+              {activeTab === 'electricals' && <Specification bikeData={selectedBike.specifications} tabName="electricals" />}
             </div>
           </div>
         )}
       </div>
       <div className='text'>
         <span>
-          +The technical specifications and design of the vehicle may vary according to the requirements and conditions without any notice • H’ness CB350 meets OBD-2B norms • Product <br /> shown in the picture may vary from actual product available in the market • All features and colours may not be part of all variants • **Conditions apply • Creative visualisation • Riding<br /> shots are shot in a controlled environment under expert supervision
+         {selectedBike.about_specifications}
         </span>
       </div>
       <div>
@@ -120,7 +128,7 @@ const BookNow = () => {
         <TestRide />
       </div>
       <div>
-        <Features />
+        <Features selectedBike={selectedBike} />
       </div>
     </div>
 

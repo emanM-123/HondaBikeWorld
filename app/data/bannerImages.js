@@ -548,22 +548,22 @@ const bikeSDetails = [
                         color: "Pearl Igneous Black",
                         link: "/bikeImages/CB350/Pearl_Igneous_Black_dev1.png"
                     },
-                    {
-                        color: "Mat Marshal Green Metallic",
-                        link: "/bikeImages/"
-                    },
-                    {
-                        color: "Mat Dune Brown",
-                        link: "/bikeImages/"
-                    },
-                    {
-                        color: "Mat Crust Metallic",
-                        link: "/bikeImages/"
-                    },
-                    {
-                        color: "Precious Red Metallic",
-                        link: "/bikeImages/"
-                    }
+                    // {
+                    //     color: "Mat Marshal Green Metallic",
+                    //     link: ""
+                    // },
+                    // {
+                    //     color: "Mat Dune Brown",
+                    //     link: ""
+                    // },
+                    // {
+                    //     color: "Mat Crust Metallic",
+                    //     link: ""
+                    // },
+                    // {
+                    //     color: "Precious Red Metallic",
+                    //     link: ""
+                    // }
                 ],
 
             },
@@ -736,18 +736,18 @@ const bikeSDetails = [
                         color: "Precious Red Metallic",
                         link: "/bikeImages/HnessCB350/Precious_Red_Metallic_newcb350.png"
                     },
-                    {
-                        color: "Mat Marshall Green Metallic",
-                        link: "/bikeImages/"
-                    },
-                    {
-                        color: "Pearl Nightstar Black",
-                        link: "/bikeImages/"
-                    },
-                    {
-                        color: "Mat Massive Grey Metallic",
-                        link: "/bikeImages/"
-                    }
+                    // {
+                    //     color: "Mat Marshall Green Metallic",
+                    //     link: ""
+                    // },
+                    // {
+                    //     color: "Pearl Nightstar Black",
+                    //     link: ""
+                    // },
+                    // {
+                    //     color: "Mat Massive Grey Metallic",
+                    //     link: ""
+                    // }
                 ],
 
             },
@@ -758,14 +758,14 @@ const bikeSDetails = [
                         color: "Mat Marshall Green Metallic",
                         link: "/bikeImages/HnessCB350/Mat_Marshal_Green_Metallic_newcb350.png"
                     },
-                    {
-                        color: "Precious Red Metallic",
-                        link: "/bikeImages/HnessCB350/"
-                    },
-                    {
-                        color: "Pearl Nightstar Black",
-                        link: "/bikeImages/HnessCB350/"
-                    }
+                    // {
+                    //     color: "Precious Red Metallic",
+                    //     link: ""
+                    // },
+                    // {
+                    //     color: "Pearl Nightstar Black",
+                    //     link: ""
+                    // }
                 ],
 
             },
@@ -776,14 +776,14 @@ const bikeSDetails = [
                         color: "Athletic Blue Metallic",
                         link: "/bikeImages/HnessCB350/Athletic_Blue_Metallic_newcb350.png"
                     },
-                    {
-                        color: "Mat Massive Grey Metallic",
-                        link: "/bikeImages/HnessCB350/"
-                    },
-                    {
-                        color: "Pearl Nightstar Black",
-                        link: "/bikeImages/HnessCB350/"
-                    }
+                    // {
+                    //     color: "Mat Massive Grey Metallic",
+                    //     link: ""
+                    // },
+                    // {
+                    //     color: "Pearl Nightstar Black",
+                    //     link: ""
+                    // }
                 ],
 
             },
@@ -915,10 +915,10 @@ const bikeSDetails = [
                         color: "Mat Massive Grey Metallic",
                         link: "/bikeImages/CB350RS/Mat_Massive_Grey_Metalic.png"
                     },
-                    {
-                        color: "Athletic Blue Metallic",
-                        link: "/bikeImages/"
-                    }
+                    // {
+                    //     color: "Athletic Blue Metallic",
+                    //     link: ""
+                    // }
                 ],
 
             },
@@ -1290,7 +1290,8 @@ const bikeSDetails = [
                     "Air Cleaner": "Viscous, cartridge type paper filter",
                     "Fuel Tank Capacity": "21.1 L"
                 },
-            }, {
+            }, 
+            {
                 dimensions: {
                     "Length(mm)	": "2,615mm",
                     "Width(mm)": "DCT 905mm",

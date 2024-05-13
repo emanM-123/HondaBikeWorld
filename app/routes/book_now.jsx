@@ -9,8 +9,8 @@ import { useLocation } from "react-router-dom";
 
 const BookNow = () => {
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);  
-  const id = searchParams.get('id') || '1'; 
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get('id') || '1';
   const selectedBike = bikeSDetails.find(bike => bike.id === parseInt(id));
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -26,7 +26,7 @@ const BookNow = () => {
   const handleColorClick = (color) => {
     setSelectedColor(color);
   }
-  
+
   const { modelName, variants } = selectedBike;
   useEffect(() => {
     if (variants.length > 0) {
@@ -63,7 +63,11 @@ const BookNow = () => {
                   {selectedVariant.colors.map(color => (
                     <div className={`box-img ${color === selectedColor ? 'selected' : ''}`} key={color.color} onClick={() => handleColorClick(color)}>
                       <div>
-                        <img src={color.link} alt={color.color} />
+                        {selectedVariant.link !== '' ? (
+                          <img src={color.link} alt={selectedVariant.link !== '' ? color.color : ''} />
+                        ) : (
+                          <div className="color-round" style={{ backgroundColor: color.color }}></div>
+                        )}
                       </div>
                       <span>{color.color}</span>
                     </div>
@@ -90,7 +94,7 @@ const BookNow = () => {
       </div>
       <div>
         {selectedVariant && (
-          <div> 
+          <div>
             <div className="tab-container">
               <span className="menu-divider" style={{ color: activeTab === 'engine' ? 'red' : '' }}>|</span>
               <button className={activeTab === 'engine' ? 'active' : ''} onClick={() => handleTabClick('engine')} style={{ color: activeTab === 'engine' ? 'red' : '' }}>ENGINE</button>
@@ -101,9 +105,9 @@ const BookNow = () => {
               <span className="menu-divider" style={{ color: activeTab === 'tyresBreaks' ? 'red' : '' }}>|</span>
               <button className={activeTab === 'tyresBreaks' ? 'active' : ''} onClick={() => handleTabClick('tyresBreaks')} style={{ color: activeTab === 'tyresBreaks' ? 'red' : '' }}>TYRES & BREAKS</button>
               <span className="menu-divider" style={{ color: activeTab === 'transmission' ? 'red' : '' }}>|</span>
-              <button className={activeTab === 'transmission' ? 'active' : ''} onClick={() => handleTabClick('transmission')}  style={{ color: activeTab === 'transmission' ? 'red' : '' }}>TRANSMISSION</button>
+              <button className={activeTab === 'transmission' ? 'active' : ''} onClick={() => handleTabClick('transmission')} style={{ color: activeTab === 'transmission' ? 'red' : '' }}>TRANSMISSION</button>
               <span className="menu-divider" style={{ color: activeTab === 'electricals' ? 'red' : '' }}>|</span>
-              <button className={activeTab === 'electricals' ? 'active' : ''} onClick={() => handleTabClick('electricals')}  style={{ color: activeTab === 'electricals' ? 'red' : '' }}>ELECTRICALS</button>
+              <button className={activeTab === 'electricals' ? 'active' : ''} onClick={() => handleTabClick('electricals')} style={{ color: activeTab === 'electricals' ? 'red' : '' }}>ELECTRICALS</button>
             </div>
             <div>
               {activeTab === 'engine' && <Specification bikeData={selectedBike.specifications} tabName="engine" />}
@@ -118,7 +122,7 @@ const BookNow = () => {
       </div>
       <div className='text'>
         <span>
-         {selectedBike.about_specifications}
+          {selectedBike.about_specifications}
         </span>
       </div>
       <div>

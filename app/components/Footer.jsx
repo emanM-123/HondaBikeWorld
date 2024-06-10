@@ -9,7 +9,7 @@ export function Footer() {
       </div>
       <div className='footer-menu'>
         <ul>
-          <li><a href="/our-story">OUR STORY</a></li>
+          <li><a href="/our_story">OUR STORY</a></li>
           <span className="menu-divider">|</span>
           <li><a href="#">MEDIA CENTER</a></li>
           <span className="menu-divider">|</span>
